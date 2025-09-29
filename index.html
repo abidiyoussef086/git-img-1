@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miku x Murloc - Epic Crossover Merch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #00d4aa 0%, #7b68ee 50%, #ff69b4 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .background-art {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .miku-character {
+            position: absolute;
+            right: 10%;
+            top: 20%;
+            width: 200px;
+            height: 300px;
+            background: linear-gradient(45deg, #00ffff, #39ff14);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .miku-hair {
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            width: 160px;
+            height: 120px;
+            background: #00ffff;
+            border-radius: 50%;
+            transform: rotate(-10deg);
+        }
+
+        .miku-hair::before,
+        .miku-hair::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 80px;
+            background: #00ffff;
+            border-radius: 50%;
+        }
+
+        .miku-hair::before {
+            left: -20px;
+            top: 30px;
+            transform: rotate(-30deg);
+        }
+
+        .miku-hair::after {
+            right: -20px;
+            top: 30px;
+            transform: rotate(30deg);
+        }
+
+        .murloc-character {
+            position: absolute;
+            left: 10%;
+            top: 40%;
+            width: 150px;
+            height: 200px;
+            background: linear-gradient(45deg, #4a9eff, #2d5aa0);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .murloc-fins {
+            position: absolute;
+            top: 20px;
+            left: -10px;
+            width: 30px;
+            height: 60px;
+            background: #2d5aa0;
+            border-radius: 50%;
+            transform: rotate(-20deg);
+        }
+
+        .murloc-fins::after {
+            content: '';
+            position: absolute;
+            right: -140px;
+            width: 30px;
+            height: 60px;
+            background: #2d5aa0;
+            border-radius: 50%;
+            transform: rotate(20deg);
+        }
+
+        .murloc-eyes {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            width: 20px;
+            height: 20px;
+            background: #ffff00;
+            border-radius: 50%;
+            box-shadow: 50px 0 0 #ffff00;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-15px) scale(1.05); }
+        }
+
+        .sparkles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffffff;
+            border-radius: 50%;
+            animation: sparkle 2s linear infinite;
+        }
+
+        @keyframes sparkle {
+            0% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #00ffff, #ff69b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-title {
+            font-size: 1.5em;
+            color: #ffffff;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .product-price {
+            font-size: 1.8em;
+            color: #00ffff;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .product-description {
+            color: #ffffff;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .buy-button {
+            background: linear-gradient(45deg, #ff69b4, #00ffff);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .buy-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .floating-notes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .musical-note {
+            position: absolute;
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.6);
+            animation: float-note 4s linear infinite;
+        }
+
+        @keyframes float-note {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-20px) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-art">
+        <div class="miku-character">
+            <div class="miku-hair"></div>
+        </div>
+        
+        <div class="murloc-character">
+            <div class="murloc-fins"></div>
+            <div class="murloc-eyes"></div>
+        </div>
+
+        <div class="sparkles" id="sparkles"></div>
+        
+        <div class="floating-notes" id="notes"></div>
+    </div>
+
+    <div class="container">
+        <header style="padding:20px 0;">
+            <nav style="display:flex;justify-content:center;gap:15px;margin-bottom:20px;flex-wrap:wrap;">
+                <button style="padding:10px 20px;background:rgba(255,255,255,0.2);border:none;border-radius:25px;color:white;cursor:pointer;backdrop-filter:blur(10px);">Home</button>
+                <button style="padding:10px 20px;background:rgba(255,255,255,0.2);border:none;border-radius:25px;color:white;cursor:pointer;backdrop-filter:blur(10px);">About</button>
+                <button style="padding:10px 20px;background:rgba(255,255,255,0.2);border:none;border-radius:25px;color:white;cursor:pointer;backdrop-filter:blur(10px);">Contact</button>
+                <button style="padding:10px 20px;background:rgba(255,255,255,0.2);border:none;border-radius:25px;color:white;cursor:pointer;backdrop-filter:blur(10px);">Our Services</button>
+                <button style="padding:10px 20px;background:rgba(255,255,255,0.2);border:none;border-radius:25px;color:white;cursor:pointer;backdrop-filter:blur(10px);">Our Products</button>
+                <button style="padding:10px 20px;background:rgba(255,255,255,0.2);border:none;border-radius:25px;color:white;cursor:pointer;backdrop-filter:blur(10px);">Our Team</button>
+            </nav>
+            <h1>Miku × Murloc</h1>
+            <p class="subtitle">Epic Crossover Collection - Where Vocaloid Meets Azeroth!</p>
+        </header>
+
+        <main style="display:flex;gap:30px;margin:30px 0;">
+            <aside style="background:rgba(255,255,255,0.15);border-radius:20px;padding:20px;backdrop-filter:blur(15px);border:2px solid rgba(255,255,255,0.2);width:200px;">
+                <h2 style="color:#fff;margin-bottom:15px;font-size:1.2em;">Sidebar</h2>
+                <p style="color:#fff;margin:5px 0;cursor:pointer;">Reels</p>
+                <p style="color:#fff;margin:5px 0;cursor:pointer;">News</p>
+                <p style="color:#fff;margin:5px 0;cursor:pointer;">Stories</p>
+                <p style="color:#fff;margin:5px 0;cursor:pointer;">Innovations</p>
+                <p style="color:#fff;margin:5px 0;cursor:pointer;">Events</p>
+                <p style="color:#fff;margin:5px 0;cursor:pointer;">Blogs</p>
+            </aside>
+            <div class="posts" style="flex:1;">
+                <div class="post" style="background:rgba(255,255,255,0.15);border-radius:20px;padding:20px;backdrop-filter:blur(15px);border:2px solid rgba(255,255,255,0.2);margin-bottom:20px;">
+                    <h3 style="color:#fff;margin-bottom:5px;">Post 1</h3>
+                    <p style="color:#ccc;font-size:0.9em;margin-bottom:15px;">05/05/25</p>
+                    <div style="color:#fff;margin-bottom:15px;"><a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" style="color:#00ffff;">Get rickrolled</a></div>
+                    <div style="display:flex;gap:10px;"><button style="padding:8px 16px;background:linear-gradient(45deg,#ff69b4,#00ffff);border:none;border-radius:20px;color:white;cursor:pointer;">Like</button><button style="padding:8px 16px;background:linear-gradient(45deg,#ff69b4,#00ffff);border:none;border-radius:20px;color:white;cursor:pointer;">Comment</button><button style="padding:8px 16px;background:linear-gradient(45deg,#ff69b4,#00ffff);border:none;border-radius:20px;color:white;cursor:pointer;">Share</button><button style="padding:8px 16px;background:linear-gradient(45deg,#ff69b4,#00ffff);border:none;border-radius:20px;color:white;cursor:pointer;">Rating</button></div>
+                </div>
+                <div class="post" style="background:rgba(255,255,255,0.15);border-radius:20px;padding:20px;backdrop-filter:blur(15px);border:2px solid rgba(255,255,255,0.2);margin-bottom:20px;">
+                    <h3 style="color:#fff;margin-bottom:5px;">Post 2</h3>
+                    <p style="color:#ccc;font-size:0.9em;margin-bottom:15px;">05/05/25</p>
+                    <div style="color:#fff;margin-bottom:15px;line-height:1.6;">Druids are the most versatile hybrid class, using the power of shape-shifting to take different forms and perform different roles within their party. Guardian Druids transform into Bear Form, becoming powerful tanks with high armor and use the Rage resource system similar to Warriors. Feral Druids transform into Cat Form, becoming powerful sources of melee damage and use the Energy resource system similar to Rogues</div>
+                    <div style="display:flex;gap:10px;"><button style="padding:8px 16px;background:linear-gradient(45deg,#ff69b4,#00ffff);border:none;border-radius:20px;color:white;cursor:pointer;">Like</button><button style="padding:8px 16px;background:linear-gradient(45deg,#ff69b4,#00ffff);border:none;border-radius:20px;color:white;cursor:pointer;">Comment</button><button style="padding:8px 16px;background:linear-gradient(45deg,#ff69b4,#00ffff);border:none;border-radius:20px;color:white;cursor:pointer;">Share</button><button style="padding:8px 16px;background:linear-gradient(45deg,#ff69b4,#00ffff);border:none;border-radius:20px;color:white;cursor:pointer;">Rating</button></div>
+                </div>
+                <div class="post" style="background:rgba(255,255,255,0.15);border-radius:20px;padding:20px;backdrop-filter:blur(15px);border:2px solid rgba(255,255,255,0.2);margin-bottom:20px;">
+                    <h3 style="color:#fff;margin-bottom:5px;">Post 3</h3>
+                    <p style="color:#ccc;font-size:0.9em;margin-bottom:15px;">05/05/25</p>
+                    <div style="color:#fff;margin-bottom:15px;line-height:1.6;">Demon hunters, disciples of Illidan Stormrage, uphold a dark legacy, one that frightens their allies and enemies alike. The Illidari embrace fel and chaotic magics—energies that have long threatened the world of Azeroth—believing them necessary to challenge the Burning Legion. Wielding the powers of demons they've slain, they develop demonic features that incite revulsion and dread in fellow elves.</div>
+                    <div style="display:flex;gap:10px;"><button style="padding:8px 16px;background:linear-gradient(45deg,#ff69b4,#00ffff);border:none;border-radius:20px;color:white;cursor:pointer;">Like</button><button style="padding:8px 16px;background:linear-gradient(45deg,#ff69b4,#00ffff);border:none;border-radius:20px;color:white;cursor:pointer;">Comment</button><button style="padding:8px 16px;background:linear-gradient(45deg,#ff69b4,#00ffff);border:none;border-radius:20px;color:white;cursor:pointer;">Share</button><button style="padding:8px 16px;background:linear-gradient(45deg,#ff69b4,#00ffff);border:none;border-radius:20px;color:white;cursor:pointer;">Rating</button></div>
+                </div>
+            </div>
+        </main>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-title">Miku Murloc Fusion T-Shirt</div>
+                <div class="product-price">$24.99</div>
+                <div class="product-description">
+                    Premium cotton tee featuring our exclusive Hatsune Miku as a magical Murloc design. Perfect for conventions, gaming sessions, or showing off your unique style!
+                </div>
+                <button class="buy-button">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-title">Holographic Sticker Pack</div>
+                <div class="product-price">$12.99</div>
+                <div class="product-description">
+                    Set of 8 shimmering holographic stickers featuring Miku-Murloc mashup art. Waterproof and perfect for laptops, phones, or water bottles!
+                </div>
+                <button class="buy-button">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-title">Limited Edition Art Print</div>
+                <div class="product-price">$19.99</div>
+                <div class="product-description">
+                    High-quality 11"×14" art print on premium paper. Features the full Miku-Murloc crossover artwork with magical underwater concert theme.
+                </div>
+                <button class="buy-button">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-title">Plush Keychain</div>
+                <div class="product-price">$16.99</div>
+                <div class="product-description">
+                    Adorable 4-inch plush keychain of Miku styled as a cute Murloc. Super soft materials with detailed embroidered features and sturdy clip.
+                </div>
+                <button class="buy-button">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-title">Gaming Mouse Pad</div>
+                <div class="product-price">$22.99</div>
+                <div class="product-description">
+                    Large format mouse pad (12"×10") with anti-slip base and smooth surface. Features stunning Miku-Murloc underwater concert scene artwork.
+                </div>
+                <button class="buy-button">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-title">Enamel Pin Set</div>
+                <div class="product-price">$18.99</div>
+                <div class="product-description">
+                    Set of 3 high-quality enamel pins featuring different Miku-Murloc designs. Perfect for jackets, backpacks, or pin boards. Includes rubber clutches.
+                </div>
+                <button class="buy-button">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating sparkles
+        function createSparkles() {
+            const sparklesContainer = document.getElementById('sparkles');
+            const colors = ['#ffffff', '#00ffff', '#ff69b4', '#ffff00'];
+            
+            for (let i = 0; i < 20; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                sparkle.style.animationDelay = Math.random() * 2 + 's';
+                sparklesContainer.appendChild(sparkle);
+            }
+        }
+
+        // Create floating musical notes
+        function createFloatingNotes() {
+            const notesContainer = document.getElementById('notes');
+            const notes = ['♪', '♫', '♬', '♩', '♭', '♯'];
+            
+            function addNote() {
+                const note = document.createElement('div');
+                note.className = 'musical-note';
+                note.textContent = notes[Math.floor(Math.random() * notes.length)];
+                note.style.left = Math.random() * 100 + '%';
+                note.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                notesContainer.appendChild(note);
+                
+                setTimeout(() => {
+                    note.remove();
+                }, 5000);
+            }
+            
+            setInterval(addNote, 800);
+        }
+
+        // Add hover effects to product cards
+        function addProductEffects() {
+            const productCards = document.querySelectorAll('.product-card');
+            
+            productCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.background = 'rgba(255, 255, 255, 0.25)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.background = 'rgba(255, 255, 255, 0.15)';
+                });
+            });
+        }
+
+        // Add click effects to buttons
+        function addButtonEffects() {
+            const buttons = document.querySelectorAll('.buy-button');
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    // Create ripple effect
+                    const ripple = document.createElement('div');
+                    const rect = button.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                    ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                    ripple.style.position = 'absolute';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+                    ripple.style.transform = 'scale(0)';
+                    ripple.style.animation = 'ripple 0.6s linear';
+                    ripple.style.pointerEvents = 'none';
+                    
+                    button.style.position = 'relative';
+                    button.style.overflow = 'hidden';
+                    button.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                    
+                    // Show success message
+                    button.textContent = 'Added! ✨';
+                    button.style.background = 'linear-gradient(45deg, #00ff00, #32cd32)';
+                    
+                    setTimeout(() => {
+                        button.textContent = 'Add to Cart';
+                        button.style.background = 'linear-gradient(45deg, #ff69b4, #00ffff)';
+                    }, 1500);
+                });
+            });
+        }
+
+        // Add ripple animation CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize all effects
+        createSparkles();
+        createFloatingNotes();
+        addProductEffects();
+        addButtonEffects();
+    </script>
+</body>
+</html>
